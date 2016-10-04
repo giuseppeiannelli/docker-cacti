@@ -1,5 +1,10 @@
 #!/bin/sh
 
+update_virtual_host(){
+    set -x \
+    && sed -i 's/$VIRTUAL_HOST/'$VIRTUAL_HOST'/g' /etc/nginx/conf.d/default.conf
+}
+
 update_cacti_db_config() {
     set -x \
     && sed -i 's/$DB_TYPE/'$DB_TYPE'/g' /usr/share/nginx/cacti/include/config.php \
@@ -21,7 +26,7 @@ update_spine_config() {
       && sed -i 's/$DB_USERNAME/'$DB_USERNAME'/g' /usr/local/spine/etc/spine.conf \
       && sed -i 's/$DB_PASSWORD/'$DB_PASSWORD'/g' /usr/local/spine/etc/spine.conf \
       && sed -i 's/$DB_PORT/'$DB_PORT'/g' /usr/local/spine/etc/spine.conf \
-      && chmod -R nginx:nginx /usr/local/spine/
+      && chown -R nginx:nginx /usr/local/spine/
     fi
 }
 
