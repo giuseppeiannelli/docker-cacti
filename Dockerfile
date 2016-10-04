@@ -3,7 +3,6 @@ MAINTAINER Giuseppe Iannelli <dev@giuseppeiannelli.it>
 
 ########### ENVS ###########
 ENV CACTI_VERSION=0.8.8h \
-POLLER_TIME_MINUTES=5 \
 SNMP_PORT=161 \
 SNMP_PORT_PROTO=udp \
 DB_TYPE=mysql \
