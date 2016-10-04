@@ -5,7 +5,10 @@ MAINTAINER Giuseppe Iannelli <dev@giuseppeiannelli.it>
 ENV CACTI_VERSION=0.8.8h \
 POLLER_TIME_MINUTES=5 \
 SNMP_PORT=161 \
-SNMP_PORT_PROTO=udp
+SNMP_PORT_PROTO=udp \
+DB_TYPE=mysql \
+DB_PORT=3306 \
+DB_SSL=false
 
 ########### INSTALL PHP, MYSQL, SNMP, SUPERVISORD ###########
 RUN apk add --no-cache --virtual .static_deps \
