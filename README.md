@@ -40,7 +40,6 @@ docker run -d -p 161/udp:161/udp -p 80:80 --network public --network private --r
 
 ```
 CACTI_VERSION=0.8.8h
-POLLER_TIME_MINUTES=5
 SNMP_PORT=161
 SNMP_PORT_PROTO=udp
 DB_TYPE=mysql
