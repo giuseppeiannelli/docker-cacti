@@ -114,6 +114,8 @@ If you want a SSL, use [jwilder/nginx-proxy](https://hub.docker.com/r/jwilder/ng
 docker run -d -p 80:80 -p 443:443 --network public --network private -v /path/to/certs:/etc/nginx/certs -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
 ```
 
+Remember to remove binding for port 80 on host
+
 # Runtime
 
 #### "Setup and Login" info
