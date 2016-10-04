@@ -41,7 +41,9 @@ start_supervisord(){
 }
 
 if [ "$1" = "cacti" ];then
-  update_cacti_db_config \
+  set -x \
+  && update_virtual_host \
+  && update_cacti_db_config \
   && update_spine_config \
   && start_supervisord
 fi
