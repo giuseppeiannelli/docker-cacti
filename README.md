@@ -1,5 +1,5 @@
 # Cacti docker image
-
+[![](https://images.microbadger.com/badges/version/giuseppeiannelli/cacti.svg)](https://microbadger.com/images/giuseppeiannelli/cacti) [![](https://images.microbadger.com/badges/image/giuseppeiannelli/cacti.svg)](https://microbadger.com/images/giuseppeiannelli/cacti)
 ###  Docker container image with cacti 0.8.8h running on Alpine Linux(v3.4), Supervisord, Nginx(1.10.1) and PHP-fpm.
 
 ##### Included plugins
