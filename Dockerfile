@@ -1,5 +1,5 @@
 FROM nginx:1.10.1-alpine
-MAINTAINER Giuseppe Iannelli <dev@giuseppeiannelli.it>
+LABEL mantainer="Giuseppe Iannelli"
 
 ########### ENVS ###########
 ENV CACTI_VERSION=0.8.8h \
