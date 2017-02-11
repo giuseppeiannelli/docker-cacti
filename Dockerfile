@@ -11,8 +11,8 @@ DB_SSL=false
 
 ########### INSTALL PHP, MYSQL, SNMP, SUPERVISORD ###########
 RUN apk add --no-cache --virtual .static_deps \
-python supervisor \
-php5 php5-fpm php5-dom php5-gd php5-ldap php5-mysql php5-mysqli php5-odbc \
+python supervisor openssl \
+php5 php5-fpm php5-dom php5-gd php5-ldap php5-mysql php5-mysqli php5-odbc php5-openssl \
 php5-pdo php5-pdo_mysql php5-pdo_odbc php5-pear php5-snmp php5-sockets php5-xml \
 net-snmp net-snmp-dev net-snmp-tools net-snmp-libs net-snmp-agent-libs \
 mariadb-client mysql-client mariadb-client-libs mariadb-dev \
