@@ -57,6 +57,7 @@ RUN apk del .spine-build-deps
 COPY docker/ /docker/
 RUN set -x \
 && cp /docker/configurations/nginx/default.conf /etc/nginx/conf.d/default.conf \
+&& cp /docker/configurations/nginx/mime.types /etc/nginx/mime.types \
 && cp /docker/configurations/php-fpm/php-fpm.conf /etc/php5/php-fpm.conf
 
 ########### SETUP CACTI ###########
