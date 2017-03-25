@@ -2,7 +2,7 @@ FROM nginx:1.10.1-alpine
 LABEL mantainer="Giuseppe Iannelli"
 
 ########### ENVS ###########
-ENV CACTI_VERSION=0.8.8h \
+ENV CACTI_VERSION=1.1.0 \
 SNMP_PORT=161 \
 SNMP_PORT_PROTO=udp \
 DB_TYPE=mysql \
@@ -12,11 +12,11 @@ DB_SSL=false
 ########### INSTALL PHP, MYSQL, SNMP, SUPERVISORD ###########
 RUN apk add --no-cache --virtual .static_deps \
 python supervisor openssl \
-php5 php5-fpm php5-dom php5-gd php5-ldap php5-mysql php5-mysqli php5-odbc php5-openssl \
-php5-pdo php5-pdo_mysql php5-pdo_odbc php5-pear php5-snmp php5-sockets php5-xml \
+php5 php5-fpm php5-dom php5-gd php5-gmp php5-json php5-ldap php5-mysql php5-mysqli php5-odbc php5-openssl \
+php5-pdo php5-pdo_mysql php5-pdo_odbc php5-pear php5-posix php5-snmp php5-sockets php5-xml php5-zlib \
 net-snmp net-snmp-dev net-snmp-tools net-snmp-libs net-snmp-agent-libs \
 mariadb-client mysql-client mariadb-client-libs mariadb-dev \
-rrdtool rrdtool-cached rrdtool-cgi rrdtool-utils wget patch
+rrdtool rrdtool-cached rrdtool-cgi rrdtool-utils wget patch help2man
 
 ########### INSTALL SPINE DEPS ###########
 RUN apk add --no-cache --virtual .spine-build-deps \
@@ -59,6 +59,11 @@ RUN set -x \
 && cp /docker/configurations/nginx/default.conf /etc/nginx/conf.d/default.conf \
 && cp /docker/configurations/nginx/mime.types /etc/nginx/mime.types \
 && cp /docker/configurations/php-fpm/php-fpm.conf /etc/php5/php-fpm.conf
+
+
+########### CREATE RRA VOLUME #####
+
+VOLUME ["/usr/share/nginx/cacti/rra/"]
 
 ########### SETUP CACTI ###########
 RUN set -x \
