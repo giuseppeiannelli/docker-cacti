@@ -30,17 +30,19 @@ RUN apk add --no-cache --virtual .spine-build-deps \
 
 
 ########### DOWNLOAD CACTI ###########
+WORKDIR /usr/share/nginx/
 RUN set -x \
 && mkdir -p /usr/share/nginx/cacti \
-&& cd /usr/share/nginx/ \
+&& rm -rf /usr/share/nginx/html \
 && wget --no-check-certificate https://www.cacti.net/downloads/cacti-"$CACTI_VERSION".tar.gz \
 && tar xzvf cacti-"$CACTI_VERSION".tar.gz  -C /usr/share/nginx/ \
 && mv cacti-"$CACTI_VERSION"/* cacti/ \
-&& rm -rf cacti-"$CACTI_VERSION".tar.gz html cacti-"$CACTI_VERSION"
+&& rm -rf cacti-"$CACTI_VERSION".tar.gz cacti-"$CACTI_VERSION"
 
 ########### DOWNLOAD SPINE ###########
+
+WORKDIR /usr/share/nginx/
 RUN set -x \
-&& cd /usr/share/nginx/ \
 && wget --no-check-certificate https://www.cacti.net/downloads/spine/cacti-spine-"$CACTI_VERSION".tar.gz \
 && tar xvzf cacti-spine-"$CACTI_VERSION".tar.gz \
 && cd cacti-spine-"$CACTI_VERSION" \
