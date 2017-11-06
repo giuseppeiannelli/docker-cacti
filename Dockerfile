@@ -25,8 +25,8 @@ RUN apk add --no-cache --virtual .spine-build-deps \
     g++ \
     gcc \
     libc-dev \
-    make \
-    openssl-dev
+    make 
+    # \openssl-dev
 
 
 ########### DOWNLOAD CACTI ###########
