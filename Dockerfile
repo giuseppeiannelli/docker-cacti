@@ -1,4 +1,4 @@
-FROM nginx:1.10.1-alpine
+FROM nginx:stable-alpine
 LABEL mantainer="Giuseppe Iannelli"
 
 ########### ENVS ###########
@@ -33,7 +33,7 @@ RUN apk add --no-cache --virtual .spine-build-deps \
 RUN set -x \
 && mkdir -p /usr/share/nginx/cacti \
 && cd /usr/share/nginx/ \
-&& wget https://www.cacti.net/downloads/cacti-"$CACTI_VERSION".tar.gz \
+&& wget --no-check-certificate https://www.cacti.net/downloads/cacti-"$CACTI_VERSION".tar.gz \
 && tar xzvf cacti-"$CACTI_VERSION".tar.gz  -C /usr/share/nginx/ \
 && mv cacti-"$CACTI_VERSION"/* cacti/ \
 && rm -rf cacti-"$CACTI_VERSION".tar.gz html cacti-"$CACTI_VERSION"
@@ -41,7 +41,7 @@ RUN set -x \
 ########### DOWNLOAD SPINE ###########
 RUN set -x \
 && cd /usr/share/nginx/ \
-&& wget https://www.cacti.net/downloads/spine/cacti-spine-"$CACTI_VERSION".tar.gz \
+&& wget --no-check-certificate https://www.cacti.net/downloads/spine/cacti-spine-"$CACTI_VERSION".tar.gz \
 && tar xvzf cacti-spine-"$CACTI_VERSION".tar.gz \
 && cd cacti-spine-"$CACTI_VERSION" \
 && ./configure \
