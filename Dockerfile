@@ -16,7 +16,7 @@ php5 php5-fpm php5-dom php5-gd php5-ldap php5-mysql php5-mysqli php5-odbc php5-o
 php5-pdo php5-pdo_mysql php5-pdo_odbc php5-pear php5-snmp php5-sockets php5-xml \
 net-snmp net-snmp-dev net-snmp-tools net-snmp-libs net-snmp-agent-libs \
 mariadb-client mysql-client mariadb-client-libs mariadb-dev \
-rrdtool rrdtool-cached rrdtool-cgi rrdtool-utils wget patch
+rrdtool rrdtool-cached rrdtool-cgi rrdtool-utils tzdata wget patch
 
 ########### INSTALL SPINE DEPS ###########
 RUN apk add --no-cache --virtual .spine-build-deps \
